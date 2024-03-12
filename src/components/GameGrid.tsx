@@ -5,6 +5,7 @@ import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 import React from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   gameQuery: GameQuery;
@@ -17,7 +18,17 @@ const GameGrid = ({ gameQuery }: Props) => {
   	if (error) return <Text>{error.message}</Text>;
 
 	return (
-		<Box padding="10px">
+		<InfiniteScroll
+			dataLength={(data?.pages.length) ? data?.pages.length : 0}
+			next={()=>fetchNextPage()}
+			hasMore={hasNextPage}
+			loader={<h4>Loading...</h4>}
+			endMessage={
+				<p style={{ textAlign: 'center' }}>
+				  <b>Yay! You have seen it all</b>
+				</p>
+			}
+		>
 			<SimpleGrid
 				columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
 				spacing={6}
@@ -38,12 +49,7 @@ const GameGrid = ({ gameQuery }: Props) => {
 					</React.Fragment>
 				)}
 			</SimpleGrid>
-			{hasNextPage && 
-				<Button 
-					marginY={5}
-					onClick={()=>fetchNextPage()}>{isFetchingNextPage ? "Loading..." : "Load More"}
-				</Button>}
-		</Box>
+		</InfiniteScroll>
 	);
 };
 
