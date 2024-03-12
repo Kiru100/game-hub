@@ -34,12 +34,14 @@ const GameGrid = ({ gameQuery }: Props) => {
 				spacing={6}
 				p="10px"
 			>
-			{isLoading &&
-				skeletons.map((skeleton) => (
-					<GameCardContainer key={skeleton}>
-						<GameCardSkeleton />
-					</GameCardContainer>
-				))}
+			{
+				isLoading &&
+					skeletons.map((skeleton) => (
+						<GameCardContainer key={skeleton}>
+							<GameCardSkeleton />
+						</GameCardContainer>
+					))
+			}
 			{data?.pages.map((page, index) =>
 					<React.Fragment key={index}>
 						{page.results.map((game)=> 
