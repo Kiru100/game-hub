@@ -11,7 +11,7 @@ const useTrailer = (gameId: number) =>{
     return useQuery({
             queryKey: ["trailer", gameId],
             queryFn: apiClient.getAll
-        })
+    })
 } 
 
 export default useTrailer;
