@@ -17,7 +17,9 @@ const GameDetailsPage = () => {
         <SimpleGrid columns={{base: 1, md: 2}} spacing={5}>
             <GridItem>
                 <Heading>{game.name}</Heading>
-                <ExpandableText>{game.description_raw}</ExpandableText> 
+                <ExpandableText>
+                    {game.description_raw}
+                </ExpandableText> 
                 <GameAttributes game={game}/>
             </GridItem>
             <GridItem>
