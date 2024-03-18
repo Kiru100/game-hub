@@ -11,7 +11,7 @@ const NavBar = () => {
 			<Link to="/">
 				<Image src={logo} boxSize='60px' objectFit="cover"/>
 			</Link>
-			<SearchInput  />
+			<SearchInput />
 			<ColorModeSwitch />
 		</HStack>
 	)
