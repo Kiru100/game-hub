@@ -1,5 +1,5 @@
 import { Button, Text } from '@chakra-ui/react';
-import { useState } from 'react'
+import { useState } from 'react';
 
 interface Props{
     children: string;
@@ -31,4 +31,4 @@ const ExpandableText = ({children}: Props) => {
     )
 }
 
-export default ExpandableText
+export default ExpandableText;
